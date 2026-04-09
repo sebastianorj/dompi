@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - DOMPI Ibagué</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">DOMPI</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+            <li><a href="contacto.html" class="active">Contacto</a></li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section>
+        <div class="section-title">
+            <h2>Ponte en Contacto</h2>
+            <p>Estamos listos para mover tus encargas en la Ciudad Musical</p>
+        </div>
+
+        <div class="grid" style="align-items: start;">
+            <!-- Contact Info -->
+            <div class="hero-content">
+                <h3>Información de Contacto</h3>
+                <p style="margin-top: 1rem;">¿Tienes una duda o quieres programar un envío masivo?</p>
+
+                <div style="margin-top: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <i class="fas fa-phone" style="color: var(--primary); font-size: 1.2rem;"></i>
+                        <span>+57 317 0245468</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <i class="fas fa-envelope" style="color: var(--primary); font-size: 1.2rem;"></i>
+                        <span>hola@dompi.com.co</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <i class="fas fa-map-marker-alt" style="color: var(--primary); font-size: 1.2rem;"></i>
+                        <span>Ibagué, Tolima - Sede Principal</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem;">
+                    <h3>¡Escríbenos por WhatsApp!</h3>
+                    <p style="margin-bottom: 1.5rem;">Atención inmediata y personalizada.</p>
+                    <a href="https://wa.me/573170245468" class="btn"
+                        style="background: #25D366; display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: fit-content;">
+                        <i class="fab fa-whatsapp"></i>
+                        Chat de Ventas
+                    </a>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="card" style="padding: 2.5rem;">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nombre Completo</label>
+                        <input type="text" id="name" class="form-control" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" class="form-control" placeholder="tu@correo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">¿En qué podemos ayudarte?</label>
+                        <textarea id="message" class="form-control" rows="5" placeholder="Escribe tu mensaje aquí..."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Enviar Mensaje</button>
+                </form>
+                <div id="formSuccess"
+                    style="display: none; margin-top: 1.5rem; text-align: center; color: var(--primary); font-weight: 600;">
+                    <i class="fas fa-check-circle"></i> ¡Mensaje enviado! Nos contactaremos pronto.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 DOMPI - Encargas en Ibagué ❤️</p>
+    </footer>
+
+    <a href="https://wa.me/573170245468" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            contactForm.style.opacity = '0.5';
+            contactForm.style.pointerEvents = 'none';
+
+            // Simulación de envío
+            setTimeout(() => {
+                contactForm.style.display = 'none';
+                formSuccess.style.display = 'block';
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>

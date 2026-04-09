@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - DOMPI Ibagué</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">DOMPI</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="servicios.html" class="active">Servicios</a></li>
+            <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section>
+        <div class="section-title">
+            <h2>Nuestros Servicios</h2>
+            <p>Soluciones logísticas adaptadas a tus necesidades</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-shipping-fast" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>Encargas Express</h3>
+                <p>Entrega inmediata en menos de 45 minutos para documentos, llaves o paquetes pequeños.</p>
+                <p style="font-weight: 700; margin-top: 1rem;">Desde $6.000 COP</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-box-open" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>Encargas Voluminosas</h3>
+                <p>Transporte de cajas grandes o compras del supermercado dentro de la ciudad.</p>
+                <p style="font-weight: 700; margin-top: 1rem;">Desde $12.000 COP</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-calendar-alt" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>Encargas Programadas</h3>
+                <p>Agenda tus mandados para el día y hora que prefieras. Perfectos para cobros o gestiones.</p>
+                <p style="font-weight: 700; margin-top: 1rem;">Tarifa base + $3.000 COP</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculador" style="background-color: var(--gray-50); border-radius: 50px 50px 0 0;">
+        <div class="section-title">
+            <h2>Calcula tu Envío</h2>
+            <p>Obtén un estimado del costo de tu servicio en segundos</p>
+        </div>
+
+        <div class="calculator-container">
+            <div class="form-group">
+                <label>1. Selecciona el tamaño del paquete:</label>
+                <div class="box-options">
+                    <div class="box-option selected" data-size="small">
+                        <i class="fas fa-box" style="font-size: 1.5rem;"></i>
+                        <span>Pequeño</span>
+                        <small style="display: block; font-size: 0.7rem;">(Sobre/Doc)</small>
+                    </div>
+                    <div class="box-option" data-size="medium">
+                        <i class="fas fa-box" style="font-size: 2rem;"></i>
+                        <span>Mediano</span>
+                        <small style="display: block; font-size: 0.7rem;">(Caja Zapato)</small>
+                    </div>
+                    <div class="box-option" data-size="large">
+                        <i class="fas fa-truck-loading" style="font-size: 2.5rem;"></i>
+                        <span>Grande</span>
+                        <small style="display: block; font-size: 0.7rem;">(Caja Mudanza)</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>2. ¿En qué zona de Ibagué vas?</label>
+                <select class="form-control" id="locationSelect">
+                    <option value="centro">Zona Centro (Centro, Cádiz, La Pola)</option>
+                    <option value="oriente">Zona Norte/Oriente (Jordán, Multicentro, Piedrapintada)</option>
+                    <option value="especial1">Zona Especial 1 (El Salado, Picaleña, Mirolindo)</option>
+                    <option value="especial2">Zona Especial 2 (Boquerón, Ricaurte, El Sur)</option>
+                </select>
+            </div>
+
+            <div class="result">
+                <p>Costo Estimado</p>
+                <div class="result-price" id="totalPrice">$6.000</div>
+                <p style="font-size: 0.8rem; opacity: 0.8;">*Tarifa base sujeta a peso final</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="contacto.html" class="btn" style="width: 100%;">Solicitar este envío</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 DOMPI - Encargas en Ibagué ❤️</p>
+    </footer>
+
+    <a href="https://wa.me/573170245468" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Calculator Logic
+        const boxOptions = document.querySelectorAll('.box-option');
+        const locationSelect = document.getElementById('locationSelect');
+        const totalPriceEl = document.getElementById('totalPrice');
+
+        let currentSize = 'small';
+        let currentLoc = 'centro';
+
+        const prices = {
+            base: 6000,
+            sizes: { small: 0, medium: 4000, large: 10000 },
+            locations: { centro: 0, oriente: 2000, especial1: 4000, especial2: 6000 }
+        };
+
+        function calculate() {
+            const total = prices.base + prices.sizes[currentSize] + prices.locations[currentLoc];
+            totalPriceEl.textContent = `$${total.toLocaleString('es-CO')}`;
+        }
+
+        boxOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                boxOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                currentSize = option.dataset.size;
+                calculate();
+            });
+        });
+
+        locationSelect.addEventListener('change', (e) => {
+            currentLoc = e.target.value;
+            calculate();
+        });
+    </script>
+</body>
+</html>
