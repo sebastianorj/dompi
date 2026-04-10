@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOMPI - Encargas y Domicilios en Ibagué</title>
+    <link rel="stylesheet" href="style-guide.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="brand/favicon-512.png">
+    <link rel="apple-touch-icon" href="brand/favicon-512.png">
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="logo">DOMPI</a>
+        <a href="index.html" class="logo">
+            <img src="brand/logo.png" alt="DOMPI" style="height: 40px;">
+        </a>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html" class="active">Inicio</a></li>
             <li><a href="servicios.html">Servicios</a></li>
@@ -37,7 +42,10 @@
             </div>
         </div>
         <div class="hero-image">
-            <i class="fas fa-shipping-fast" style="font-size: 15rem; color: var(--primary); opacity: 0.8;"></i>
+            <picture>
+                <source media="(max-width: 768px)" srcset="images/hero-mobile.png">
+                <img src="images/hero-desktop.png" alt="Repartidor DOMPI">
+            </picture>
         </div>
     </header>
 
@@ -48,20 +56,33 @@
         </div>
         <div class="grid">
             <div class="card">
-                <i class="fas fa-bolt" style="color: var(--primary); font-size: 2rem; margin-bottom: 1rem;"></i>
+                <img src="images/icon-fast.svg" alt="Velocidad" class="card-icon">
                 <h3>Velocidad Rayo</h3>
                 <p>Entregas en menos de 45 minutos en el perímetro urbano de Ibagué.</p>
             </div>
             <div class="card">
-                <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 2rem; margin-bottom: 1rem;"></i>
+                <img src="images/icon-secure.svg" alt="Seguridad" class="card-icon">
                 <h3>Seguridad Total</h3>
                 <p>Todos tus envíos están asegurados y rastreados en tiempo real.</p>
             </div>
             <div class="card">
-                <i class="fas fa-map-marker-alt" style="color: var(--primary); font-size: 2rem; margin-bottom: 1rem;"></i>
+                <img src="images/icon-local.svg" alt="Cobertura" class="card-icon">
                 <h3>Cobertura Local</h3>
                 <p>Desde El Salado hasta Boquerón, llegamos a cualquier barrio de la ciudad.</p>
             </div>
+        </div>
+    </section>
+    
+    <section class="video-section">
+        <div class="section-title">
+            <h2>Mira cómo trabajamos</h2>
+            <p>Tecnología y logística al servicio de tus encargas</p>
+        </div>
+        <div class="video-container">
+            <video width="100%" height="auto" controls poster="images/hero-desktop.png">
+                <source src="video/promo-video.mp4" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
         </div>
     </section>
 
